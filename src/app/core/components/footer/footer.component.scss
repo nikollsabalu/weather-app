@@ -1,0 +1,40 @@
+.container {
+  align-items: center;
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  height: 5rem;
+  background-color: #1a54ac;
+  font-size: small;
+  width: 100%;
+  margin: 0px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+a {
+  margin: 5px;
+}
+
+a:link,
+a:visited,
+a:active {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.copyright {
+  display: flex;
+  align-items: center;
+}
+
+.portfolio {
+  display: flex;
+  text-align: left;
+}
+
+@media (max-width:700px) {
+  .item {
+    flex-direction: column;
+    width: 100%;
+  }
+}

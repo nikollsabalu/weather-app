@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="sidenavContent">
+    <div class="buscar">
+      <app-search (search)="searchByName($event)"></app-search>
+    </div>
+    <div class="sidebarContainer">
+      <img [src]="icon" alt="weather image" class="icon" />
+      <div class="city">{{city}}</div>
+      <div *ngIf="seaLevel">{{todayData.main.sea_level }} AMSL</div>
+      <div class="temperatureNumber">{{todayData.main.temp | temperature}}</div>
+      <br />
+      <div class="temperatureText">
+        {{todayData.weather[0].description | titlecase}}
+      </div>
+
+      <div class="footer">
+        <h2> {{todayDate | date : 'medium'}} </h2>
+      </div>
+
+      <div class="hourlyForecastContainer" *ngIf="isHourlyForecastData">
+        <div *ngFor="let forescast of hourlyForecastData; index as i" class="hourlyForecastItem">
+          <div class="hour">{{ forescast.dt_txt | date:'shortTime' }}</div>
+          <img [src]="hourlyForecastIcons[i]" alt="weather image" class="hourlyIcon" />
+          <div class="humidityText"> <img src="assets/humiditypercent.svg" alt="High temperature image"
+              class="humidity"> {{ forescast.main.humidity}}%</div>
+          <div class="temperature">{{ forescast.main.feels_like |temperature:true}}</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="featuredContainer">
+    <app-loading *ngIf="isLoading"></app-loading>
+    <app-featured *ngIf="!showError" [country]="country" [city]="city" [todayData]="todayData"
+      [forecastData]="forecastData" [forecastIcons]="forecastIcons">
+    </app-featured>
+
+    <div *ngIf="showError" class="errorContainer">
+      <div class="errorText">We couldn't find the city you're looking for. Try looking for another.</div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

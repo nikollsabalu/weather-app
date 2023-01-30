@@ -1,0 +1,134 @@
+.container {
+  background-color: rgba(64, 124, 215, 0.15);
+  display: flex;
+
+}
+
+.sidenavContent {
+  background-image: linear-gradient(to bottom, rgba(64, 124, 215, 0.5), rgba(64, 124, 215, 1));
+  padding: 1rem;
+  align-items: center;
+  min-width: 30%;
+}
+
+.footer {
+  margin-top: 5%;
+  display: inline-flex;
+  color: white;
+  justify-content: space-evenly
+}
+
+.closeButton {
+  justify-content: flex-end;
+}
+
+.sidebarContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-family: 'Archivo', sans-serif;
+  color: white;
+
+  .temperatureNumber {
+    margin-top: 10%;
+    font-size: 300%;
+    font-weight: bold;
+  }
+
+  .temperatureText {
+    font-size: 250%;
+    font-weight: bold;
+  }
+
+  .icon {
+    width: 50%;
+  }
+}
+
+.city {
+  font-size: 200%;
+  margin-bottom: 2%;
+}
+
+.hourlyForecastContainer {
+  color: #fff;
+  display: inline-flex;
+  justify-content: space-around;
+  padding: 3%;
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.25);
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px);
+  border-radius: 10px;
+  width: 90%;
+
+  .humidity {
+    width: 10px;
+  }
+
+  .title {
+    color: #094094;
+  }
+}
+
+.hourlyForecastItem {
+  text-align: center;
+
+  .hourlyIcon {
+    width: 40px;
+  }
+
+  .hour, .temperature {
+    font-size: 0.75rem;
+  }
+
+}
+
+.humidityText {
+  color: #094094;
+  font-size: 80%;
+  font-weight: bold;
+}
+
+.errorContainer {
+  width: 100%;
+  font-family: 'Archivo', sans-serif;
+  color: #2568CD;
+  padding: 10%;
+
+  .errorText {
+    font-size: 100%;
+    font-weight: bold;
+  }
+}
+
+// Media queries
+@media (max-width: 650px) {
+
+  .container {
+    display: flex;
+    flex-direction: column;
+
+    .sidenavContent {
+      max-width: 100%;
+      padding: 1rem;
+      align-items: center;
+    }
+  }
+
+}
+
+@media (max-width: 980px) {
+
+  .sidebarContainer {
+    .temperatureText {
+      font-size: 150%;
+    }
+  }
+
+  .hourlyForecastContainer {
+    flex-direction: column
+  }
+}

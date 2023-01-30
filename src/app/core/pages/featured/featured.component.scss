@@ -1,0 +1,133 @@
+.container {
+  padding: 20px;
+  color: #2568CD;
+  height: 100vh;
+}
+
+.title {
+  font-family: 'Archivo', sans-serif;
+  color: #2568CD;
+  font-size: 200%;
+  font-weight: bold;
+  margin-bottom: 5%;
+}
+
+.subtitle {
+  font-family: 'Archivo', sans-serif;
+  font-size: 100%;
+  font-weight: bold;
+}
+
+.todayCard {
+  text-align: center;
+  padding: 0.5rem;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  border-radius: 1rem;
+  margin: 0.5rem;
+}
+
+.dataInfo {
+  font-size: 1.5rem;
+}
+
+.temperatureCard {
+  display: flex;
+  text-align: center;
+  justify-content: space-around;
+  margin: 0.5rem;
+  padding: 0.7rem;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 1rem;
+  text-align: center;
+  font-family: 'Archivo', sans-serif;
+}
+
+.informationCard {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  font-family: 'Archivo', sans-serif;
+}
+
+.forecastContainer,
+.hourlyForecastContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-family: 'Archivo', sans-serif;
+  margin-bottom: 2%;
+
+  .icon {
+    width: 50%;
+  }
+}
+
+.forecastItem {
+  margin: 0.5rem;
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 1rem;
+  text-align: center;
+}
+
+.forecastItem:first-child {
+  background-color: rgba(64, 124, 215, 1);
+  color: white;
+
+  .date {
+    display: none;
+  }
+
+  .forecastTodayDay::after {
+    color: white;
+    font-weight: bold;
+    content: 'TOMORROW';
+  }
+}
+
+.forecastItem:hover {
+  -webkit-transform: translateY(-5px);
+  -ms-transform: translateY(-5px);
+  -o-transform: translateY(-5px);
+  transform: translateY(-5px);
+}
+
+// Media queries
+
+@media (max-width: 300px) {
+    .title {
+      font-size: 150%;
+    }
+}
+
+@media (max-width: 650px) {
+  .forecastContainer, .informationCard, .temperatureCard{
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center
+  }
+
+  .temperatureCard {
+    margin: 0;
+  }
+}
+
+@media (max-width: 765px) {
+  .forecastContainer {
+    flex-wrap: wrap
+  }
+}
+
+@media (max-width: 1250px) {
+  .container {
+    height: 100%;
+  }
+}

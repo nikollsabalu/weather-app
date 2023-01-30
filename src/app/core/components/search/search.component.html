@@ -1,0 +1,8 @@
+<mat-form-field class="example-full-width">
+    <mat-label>Search a city and press Enter</mat-label>
+    <input
+            matInput
+            placeholder="Example: Lima"
+            (keyup.enter)="onSearch( txtSearch.value )"
+            #txtSearch class="input" >
+</mat-form-field>

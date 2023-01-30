@@ -1,0 +1,81 @@
+
+
+<div class="container">
+
+  <div class="title">
+    <img src="assets/location.svg" alt="location icon" class="icon">
+    Location: {{city}}, {{ country }}
+  </div>
+
+  <div class="subtitle">INFORMATION ABOUT THE WEATHER</div>
+  <div class="temperatureCard">
+      <div>
+        <div>Maximum temperature</div>
+        <br />
+        <img src="assets/high-temperature.svg" alt="High temperature image" class="icon">
+        <strong class="dataInfo"> {{todayData.main.temp_max.toString()| temperature}} </strong>
+      </div>
+
+      <div>
+        <div>Minimum temperature</div>
+        <br />
+        <img src="assets/low-temperature.svg" alt="Low temperature image" class="icon">
+        <strong class="dataInfo"> {{todayData.main.temp_min.toString() | temperature}} </strong>
+      </div>
+  </div>
+
+  <div class="informationCard">
+    <div class="todayCard">
+      <div class="icon">
+        <img src="assets/wind.svg" alt="wind image">
+      </div>
+      <strong class="dataInfo"> {{ todayData.wind.speed | number: '.0-2'}} </strong>
+      <strong> mbs</strong>
+      <div>Wind state</div>
+    </div>
+
+    <div class="todayCard">
+      <div class="icon">
+        <img src="assets/humidity.svg" alt="humidity image">
+      </div>
+      <strong class="dataInfo"> {{ todayData.main.humidity}} </strong>
+      <strong> %</strong>
+      <div>Humidity</div>
+    </div>
+
+    <div class="todayCard">
+      <div class="icon">
+        <img src="assets/visibility.svg" alt="visibility image">
+      </div>
+      <strong class="dataInfo"> {{ todayData.visibility |kilometer}}</strong>
+      <strong> kms</strong>
+      <div>Visibility</div>
+    </div>
+
+    <div class="todayCard">
+      <div class="icon">
+        <img src="assets/air-pressure.svg" alt="air pressure image">
+      </div>
+      <div class="container-info">
+        <strong class="dataInfo">{{ todayData.main.pressure }}</strong>
+        <strong> hPa</strong>
+      </div>
+      <div>Air pressure</div>
+    </div>
+  </div>
+
+  <br />
+  <div  class="subtitle"><img src="assets/calendar.svg" alt="High temperature image" class="humidity"> 5-DAY FORECAST</div>
+  <div class="forecastContainer">
+    <div *ngFor="let forescast of forecastData; index as i" class="forecastItem">
+      <div class="forecastTodayDay">
+        <strong class="date">{{ forescast.dt_txt | date:'ccc' | uppercase}}</strong>
+      </div>
+      <img [src]="forecastIcons[i]" alt="weather image" class="icon" />
+      <div><strong>{{ forescast.weather[0].description | titlecase}}</strong></div>
+      <p>{{ forescast.main.feels_like |temperature:true}}</p>
+      <p>{{ forescast.dt_txt | date:'LLLL, dd' }}</p>
+    </div>
+  </div>
+</div>
+
